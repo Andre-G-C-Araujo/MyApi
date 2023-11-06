@@ -3,18 +3,8 @@ const { hash, compare } = require("bcryptjs");
 const AppError = require("../utils/AppError");
 
 const sqliteConnection = require("../database/sqlite");
-const { ERROR } = require("sqlite3");
 
 class UserControllers {
-  /*
-  Controller no maximo utiliza 5 metodos.
-  se controller tiver mais de 5 metodos. utilizar um controller a parte para realizar essa funçao
-   *index = GET para listar varios regitros.
-   *show - GET para exibir um registro especifico.
-   *create - POST para criar um registro.
-   *update - PUT para atualizar um registro.
-   *delete - DELETE para remover um registro
-   */
   async create(req, res) {
     const { name, email, password } = req.body;
     const database = await sqliteConnection();
